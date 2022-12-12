@@ -72,30 +72,10 @@ def sentence_windowized(sentences, window_size=20):
 
 
 
-def load_data(filepath="data/subset"):
+def load_data(filepath="data/subset", window_size=20):
 
     inputs, labels = recover_from_dataframe(filepath)
     
-    
-
-#     #randomly split examples into training and testing sets
-#     shuffled_images = list(image_names_to_captions.keys())
-#     random.seed(0)
-#     random.shuffle(shuffled_images)
-#     test_image_names = shuffled_images[:1000]
-#     train_image_names = shuffled_images[1000:]
-
-
-
-#     # get lists of all the captions in the train and testing set
-#     train_captions = get_all_captions(train_image_names)
-#     test_captions = get_all_captions(test_image_names)
-
-    #remove special charachters and other nessesary preprocessing
-#     window_size = 20
-#     preprocess_captions(train_captions, window_size)
-#     preprocess_captions(test_captions, window_size)
-    window_size = 20
     labels = sentence_windowized(labels, window_size)
 #     inputs = sentence_windowized(inputs, 500)
     inputs = sentence_windowized(inputs, 100)
